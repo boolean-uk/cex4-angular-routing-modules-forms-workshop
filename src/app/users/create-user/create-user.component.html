@@ -1,0 +1,58 @@
+<h2>Add New User</h2>
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div>
+    <label>Name</label>
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+      autocomplete="false"
+    />
+    <div
+      class="error"
+      *ngIf="
+        form.get('name')?.invalid &&
+        (form.get('name')?.dirty || form.get('name')?.touched)
+      "
+    >
+      Please provide a name.
+    </div>
+  </div>
+  <div>
+    <label>Email</label>
+    <input
+      formControlName="email"
+      type="text"
+      placeholder="Email"
+      autocomplete="false"
+    />
+    <div
+      class="error"
+      *ngIf="
+        form.get('email')?.invalid &&
+        (form.get('email')?.dirty || form.get('email')?.touched)
+      "
+    >
+      Please provide a valid email address.
+    </div>
+  </div>
+  <div>
+    <label>Password</label>
+    <input
+      formControlName="password"
+      type="password"
+      placeholder="Password"
+      autocomplete="false"
+    />
+    <div
+      class="error"
+      *ngIf="
+        form.get('password')?.invalid &&
+        (form.get('password')?.dirty || form.get('password')?.touched)
+      "
+    >
+      Please provide a password of at least 5 characters.
+    </div>
+  </div>
+  <button type="submit" [disabled]="!form.valid">Create!</button>
+</form>
