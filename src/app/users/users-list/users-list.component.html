@@ -1,6 +1,6 @@
 <h2>Users</h2>
 <div *ngFor="let user of userService.users">
   {{ user.name }}: {{ user.email }}
-  <a href="{{ '/users/' + user.id }}">View</a>
-  <a href="/users/{{ user.id }}" style="margin-left: 10px">go</a>
+  <a routerLink="{{ '/users/' + user.id }}">View</a>
+  <a routerLink="/users/{{ user.id }}" style="margin-left: 10px">go</a>
 </div>
